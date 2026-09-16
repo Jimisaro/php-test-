@@ -34,12 +34,14 @@
        ?>
     <ul>
         <?php foreach($books as $boook):?>
+            <?php if ($boook ['author'] =='ROBERT T. KIYOSAKI'): ?>
             <li>
                 <a href="<?= $boook['PURCHASE URL'] ?>">
                 <?= $boook['title'] ?></a> by 
                 <?= $boook['author'] ?> (<?= $boook['year'] ?>)
             </li>
-        <?php endforeach; ?>
+            <?php endif; ?>
+        <?php endforeach; ?>    
     </ul>
 </body>
 </html>
