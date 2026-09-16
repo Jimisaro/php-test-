@@ -30,6 +30,12 @@
             'year' => '2012',
             'PURCHASE URL' => 'https://www.amazon.com/Power-Habit-What-Life-Business/dp/081298160X',
         ],
+        [
+            'title' => 'THE 4-HOUR WORK WEEK',
+            'author' => 'TIMOTHY FERRISS',
+            'year' => '2007',
+            'PURCHASE URL' => 'https://www.amazon.com/4-Hour-Workweek-Escape-Live-Anywhere/dp/0307465357',
+        ]
        ]; 
        ?>
     <ul>
