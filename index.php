@@ -45,7 +45,8 @@
        function filterebyauthor($books, $author){
         $filteredbooks = [];
             foreach ($books as $book){
-                if ($book['author'] == 'ROBERT T. KIYOSAKI'){
+                //instead of harrdcoding  the name  we can add. the author as a parameter. hence calling it  
+                if ($book['author'] == $author){
                     echo "<li><a href='{$book['PURCHASE URL']}'>{$book['title']}</a> by {$book['author']} ({$book['year']})</li>";
                     $filteredbooks[] = $book;
                 }
