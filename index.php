@@ -11,6 +11,9 @@
         echo  "Recommended books to read";
         ?>
         </h1>
+        
+            
+    
        <?= $books = [
         [
             'title' => 'THE RICH DAD AND THE POOR DAD',
@@ -37,16 +40,23 @@
             'PURCHASE URL' => 'https://www.amazon.com/4-Hour-Workweek-Escape-Live-Anywhere/dp/0307465357',
         ]
        ]; 
+       // function to filter books by author
+       //example  on how to define a function in php and filter by function
+       function filterebyauthor($books, $author){
+        $filteredbooks = [];
+            foreach ($books as $book){
+                if ($book['author'] == 'ROBERT T. KIYOSAKI'){
+                    echo "<li><a href='{$book['PURCHASE URL']}'>{$book['title']}</a> by {$book['author']} ({$book['year']})</li>";
+                    $filteredbooks[] = $book;
+                }
+            }
+        return $filteredbooks;
+        }   
        ?>
     <ul>
-        <?php foreach($books as $boook):?>
-            <?php if ($boook ['author'] =='ROBERT T. KIYOSAKI'): ?>
-            <li>
-                <a href="<?= $boook['PURCHASE URL'] ?>">
-                <?= $boook['title'] ?></a> by 
-                <?= $boook['author'] ?> (<?= $boook['year'] ?>)
-            </li>
-            <?php endif; ?>
+        <?php foreach (filterebyauthor($books, 'ROBERT T. KIYOSAKI') as $boook):?>
+            
+        
         <?php endforeach; ?>    
     </ul>
 </body>
