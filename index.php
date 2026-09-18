@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>php tutorial</title>
-</head>
-<body>
-    <h1>
-        <?php 
-        echo  "Recommended books to read";
-        ?>
-        </h1>
-        
-            
-    
-       <?php $books= [
+ <?php 
+ 
+ $books= [
         [
             'title' => 'THE RICH DAD AND THE POOR DAD',
             'author' => 'ROBERT T. KIYOSAKI',
@@ -54,17 +40,7 @@
 $filteredbooks = array_filter($books, function($book) {
     return $book['author'] == 'ROBERT T. KIYOSAKI' || $book['author'] == 'TIMOTHY FERRISS';
 });
-       ?>
-    <ul>
-        <?php foreach ($filteredbooks as $book): ?>
-            <li>
-                <a href =<?php echo $book['PURCHASE URL']; ?>">
-                    <?php echo $book['title']; ?> (<?php echo $book['year']; ?>) - by <?php echo $book['author']; ?>
-                </a>
-            </li>
+
+require 'index.view.php';
+  
    
-        <?php endforeach; ?>  
-          
-    </ul>
-</body>
-</html>
