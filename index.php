@@ -14,7 +14,7 @@
         
             
     
-       <?= $books = [
+       <?php $books= [
         [
             'title' => 'THE RICH DAD AND THE POOR DAD',
             'author' => 'ROBERT T. KIYOSAKI',
@@ -40,25 +40,29 @@
             'PURCHASE URL' => 'https://www.amazon.com/4-Hour-Workweek-Escape-Live-Anywhere/dp/0307465357',
         ]
        ]; 
-       // function to filter books by author
-       //example  on how to define a function in php and filter by function
-       function filterebyauthor($books, $author){
-        $filteredbooks = [];
-            foreach ($books as $book){
-                //instead of harrdcoding  the name  we can add. the author as a parameter. hence calling it  
-                if ($book['author'] == $author){
-                    echo "<li><a href='{$book['PURCHASE URL']}'>{$book['title']}</a> by {$book['author']} ({$book['year']})</li>";
-                    $filteredbooks[] = $book;
-                }
-            }
-        return $filteredbooks;
-        }   
+       //filtetring  thats  feels more. dynamic and reusable
+    function filter($items, $key, $value) {
+    $filtereditems = [];
+    foreach ($items as $item) {
+        if ($item[$key] == $value) {
+            $filtereditems[] = $item;
+        }
+    }
+    return $filtereditems;
+}
+
+$filteredbooks = filter($books, 'year', '2007');
        ?>
     <ul>
-        <?php foreach (filterebyauthor($books, 'ROBERT T. KIYOSAKI') as $boook):?>
-            
-        
-        <?php endforeach; ?>    
+        <?php foreach ($filteredbooks as $book): ?>
+            <li>
+                <a href =<?php echo $book['PURCHASE URL']; ?>">
+                    <?php echo $book['title']; ?> (<?php echo $book['year']; ?>) - by <?php echo $book['author']; ?>
+                </a>
+            </li>
+   
+        <?php endforeach; ?>  
+          
     </ul>
 </body>
 </html>
