@@ -41,17 +41,19 @@
         ]
        ]; 
        //filtetring  thats  feels more. dynamic and reusable
-    function filter($items, $key, $value) {
+    function filter($items, $function) {
     $filtereditems = [];
     foreach ($items as $item) {
-        if ($item[$key] == $value) {
+        if ($function($item)) {
             $filtereditems[] = $item;
         }
     }
     return $filtereditems;
 }
-
-$filteredbooks = filter($books, 'year', '2007');
+//filtering books that are published after 2000
+$filteredbooks = filter($books, function($book) {
+    return $book['year'] > 2000;
+});
        ?>
     <ul>
         <?php foreach ($filteredbooks as $book): ?>
