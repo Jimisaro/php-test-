@@ -50,9 +50,9 @@
     }
     return $filtereditems;
 }
-//filtering books that are published after 2000
-$filteredbooks = filter($books, function($book) {
-    return $book['year'] > 2000;
+//filtering books that are published by robert t. kiyosaki and timothy ferriss
+$filteredbooks = array_filter($books, function($book) {
+    return $book['author'] == 'ROBERT T. KIYOSAKI' || $book['author'] == 'TIMOTHY FERRISS';
 });
        ?>
     <ul>
