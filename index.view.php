@@ -7,14 +7,13 @@
 </head>
 <body>
     <ul>
-         <?php foreach ($item as $value): ?>
+         
             <li>
                 <php echo $value ?>
                 </a>
             </li>
    
-        <?php endforeach; ?>  
-    </ul>
+      
     
 </body>
 </html>
