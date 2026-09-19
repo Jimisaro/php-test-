@@ -1,46 +1,32 @@
- <?php 
- 
- $books= [
-        [
-            'title' => 'THE RICH DAD AND THE POOR DAD',
-            'author' => 'ROBERT T. KIYOSAKI',
-            'year' => '1997',
-            'PURCHASE URL' => 'https://www.amazon.com/Rich-Dad-Poor-Teach-Middle/dp/1612680194',
-        ],
-        [
-            'title' => 'THE 7 HABITS OF HIGHLY EFFECTIVE PEOPLE',
-            'author' => 'STEPHEN R. COVEY',
-            'year' => '1989',
-            'PURCHASE URL' => 'https://www.amazon.com/Habits-Highly-Effective-People-Powerful/dp/0743269519',
-        ],
-        [
-            'title' => 'THE POWER OF HABIT',
-            'author' => 'CHARLES DUHIGG',
-            'year' => '2012',
-            'PURCHASE URL' => 'https://www.amazon.com/Power-Habit-What-Life-Business/dp/081298160X',
-        ],
-        [
-            'title' => 'THE 4-HOUR WORK WEEK',
-            'author' => 'TIMOTHY FERRISS',
-            'year' => '2007',
-            'PURCHASE URL' => 'https://www.amazon.com/4-Hour-Workweek-Escape-Live-Anywhere/dp/0307465357',
-        ]
-       ]; 
-       //filtetring  thats  feels more. dynamic and reusable
-    function filter($items, $function) {
-    $filtereditems = [];
-    foreach ($items as $item) {
-        if ($function($item)) {
-            $filtereditems[] = $item;
+<?php 
+ $business = [
+    'Name' => "JimtrioTech",
+    'founder' => 'Jimmy and Freedom',
+    'year' => '2026',
+    'location' => 'Donholm , Nairobi',
+ ];
+  $businessnature = [
+    'transpotation' => 'public transport',
+     'sacco company' => [
+        'kinatwa sacco',
+         'makos sacco',
+         'BenJo Sacco'
+     ]
+    
+ ];
+ foreach ($businessnature as $key => $value) {
+    if (is_array($value)) {
+        echo "<h2>$key:</h2>";
+        echo "<ul>";
+        foreach ($value as $item) {
+            echo "<li>$item</li>";
         }
+        echo "</ul>";
+    } else {
+        echo "<p>$key: $value</p>";
     }
-    return $filtereditems;
-}
-//filtering books that are published by robert t. kiyosaki and timothy ferriss
-$filteredbooks = array_filter($books, function($book) {
-    return $book['author'] == 'ROBERT T. KIYOSAKI' || $book['author'] == 'TIMOTHY FERRISS';
-});
+    }
+    require 'index.view.php';
 
-require 'index.view.php';
-  
-   
+
+?>

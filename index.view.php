@@ -7,10 +7,9 @@
 </head>
 <body>
     <ul>
-         <?php foreach ($filteredbooks as $book): ?>
+         <?php foreach ($item as $value): ?>
             <li>
-                <a href =<?php echo $book['PURCHASE URL']; ?>">
-                    <?php echo $book['title']; ?> (<?php echo $book['year']; ?>) - by <?php echo $book['author']; ?>
+                <php echo $value ?>
                 </a>
             </li>
    
