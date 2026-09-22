@@ -16,6 +16,7 @@
  ];
  
     require 'index.view.php';
+   
      
 
 ?>
